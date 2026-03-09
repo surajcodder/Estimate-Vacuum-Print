@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="idRfqDialog"
+        title="Select RFQ No"
+        draggable="true"
+        resizable="true"
+    >
+        <content>
+            <Toolbar>
+                <SearchField
+                    id="idRfqSearchField"
+                    placeholder="Search RFQ..."
+                    liveChange=".onSearchRfq"
+                />
+                <ToolbarSpacer />
+            </Toolbar>
+
+            <List
+                id="idRfqList"
+                mode="SingleSelect"
+                items="{ path: 'zsrv_f4_rfq>/ZI_RFQ_F4' }"
+                selectionChange="onRfqSelectionChange"
+                growing="true"
+                growingScrollToLoad="true"
+                growingThreshold="150"
+            >
+                <StandardListItem title="{zsrv_f4_rfq>rfqno}" />
+            </List>
+        </content>
+
+        <buttons>
+            <Button text="OK" type="Emphasized" press=".onSelectRfq" />
+            <Button text="Cancel" press=".onCloseRfqDialog" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

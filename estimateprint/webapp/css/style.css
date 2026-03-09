@@ -1,0 +1,197 @@
+.sapMDialogScrollCont {
+
+    height: 100% !important;
+
+}
+
+.sapMDialogScrollCont>div {
+
+    height: 100%;
+
+}
+
+.sapMDialogScrollCont iframe {
+
+    height: 100%;
+
+    width: 100%;
+
+    display: block;
+
+}
+
+.fullScreenDialogContent .sapMDialogScrollCont {
+
+    height: 100% !important;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+.fullScreenDialogContent iframe {
+
+    height: 100% !important;
+
+    width: 100% !important;
+
+    border: none;
+
+}
+
+.fullScreenPdfDialog .sapMDialogScrollCont {
+
+    height: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+}
+
+.fullScreenPdfDialog .sapMDialogScroll {
+
+    height: 100% !important;
+
+}
+
+.fullScreenPdfDialog iframe {
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    border: none;
+
+}
+
+
+.pdf-preview-frame iframe {
+
+    width: 100%;
+
+    height: calc(100vh - 150px);
+
+    border: none;
+
+}
+
+
+#closeBtn {
+
+    position: relative;
+    /* If inside HBox */
+
+    margin-right: 10px;
+
+    margin-top: 5px;
+
+}
+
+.tableWrapper {
+
+    height: 450px;
+    /* vertical scroll area */
+
+    overflow-y: auto;
+
+    overflow-x: auto;
+
+}
+
+/* Make DynamicPage content take full height */
+
+.sapFDynamicPageContent {
+
+    overflow: hidden !important;
+
+    height: 100%;
+
+}
+
+/* Make our PDF iframe stretch fully */
+
+.pdf-iframe-container {
+
+    height: calc(100vh - 255px);
+
+    width: 100%;
+
+}
+
+.pdf-container iframe {
+
+    width: 100%;
+
+    height: calc(100vh - 100px);
+
+    border: none;
+
+}
+
+.pdf-iframe {
+
+    height: 100%;
+
+    width: 100%;
+
+    border: none;
+
+}
+
+.floating-btn-container {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 80px;
+
+    z-index: 1000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.floating-btn-container .sapMBtn {
+
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.3); */
+
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+
+}
+
+/* In your CSS file */
+
+.pdf-loading-overlay {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: calc(100vh - 150px);
+
+    background: rgba(255, 255, 255, 0.8);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.2rem;
+
+    color: #444;
+
+    z-index: 999;
+
+}

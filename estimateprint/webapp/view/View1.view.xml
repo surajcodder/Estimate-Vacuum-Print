@@ -1,0 +1,119 @@
+<mvc:View
+    controllerName="com.crescent.app.estimateprint.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants"
+>
+    <!-- Main Page -->
+    <f:DynamicPage
+        id="pageId"
+        headerExpanded="true"
+        preserveHeaderStateOnScroll="true"
+    >
+        <!-- TITLE -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <svm:SmartVariantManagement id="svm" />
+                </f:heading>
+
+                <f:expandedContent>
+                    <Text text="Enter RFQ No and click Go." />
+                </f:expandedContent>
+
+                <f:snappedContent>
+                    <HBox alignItems="Center">
+                        <Text
+                            text="RFQ: {ui>/selectedRfq}"
+                            class="sapUiTinyMarginEnd"
+                        />
+                        <Button
+                            icon="sap-icon://pdf-attachment"
+                            press=".onPreviewPdf"
+                            enabled="{ui>/formVisible}"
+                        />
+                    </HBox>
+                </f:snappedContent>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <!-- HEADER (FilterBar like your previous screen) -->
+        <f:header>
+            <f:DynamicPageHeader>
+                <f:content>
+                    <fb:FilterBar
+                        id="filterbar"
+                        useToolbar="false"
+                        search=".onGo"
+                    >
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem
+                                name="RFQ"
+                                label="RFQ No."
+                                groupName="Main"
+                                visibleInFilterBar="true"
+                                mandatory="true"
+                            >
+                                <fb:control>
+                                    <Input
+                                        id="inpRfq"
+                                        width="300px"
+                                        placeholder="Select RFQ No"
+                                        showClearIcon="true"
+                                        showValueHelp="true"
+                                        valueHelpRequest=".onOpenRfqDialog"
+                                    />
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <!-- CONTENT -->
+        <f:content>
+            <VBox
+                fitContainer="true"
+                class="pdfPreviewBox"
+                height="100%"
+            >
+                <!-- PDF Area -->
+
+                <ScrollContainer
+                    vertical="true"
+                    horizontal="false"
+                    height="100%"
+                >
+                    <core:HTML
+                        id="pdfIframeContainer"
+                        content=""
+                        class="pdf-container"
+                    />
+                </ScrollContainer>
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+
+    <!-- Floating Buttons -->
+    <VBox
+        class="floating-btn-container"
+        visible="{ui>/pdfVisible}"
+    >
+        <Button
+            icon="sap-icon://download"
+            type="Emphasized"
+            tooltip="Download PDF"
+            press=".onDownloadPdf"
+        />
+        <Button
+            icon="sap-icon://decline"
+            type="Reject"
+            tooltip="Close PDF"
+            press=".onClosePdfPreview"
+        />
+    </VBox>
+</mvc:View>
